@@ -1,0 +1,4494 @@
+{
+	"info": {
+		"_postman_id": "dfa285b5-8a8c-48f6-a623-12625ff1b6ba",
+		"name": "HOGODOC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42584670"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login - Success(200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "EmailAddress",
+									"value": "tuyetphong001@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "e10adc3949ba59abbe56e057f20f883e",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/Login",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - Success(200) - KeepLogin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "EmailAddress",
+									"value": "tuyetphong001@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "e10adc3949ba59abbe56e057f20f883e",
+									"type": "text"
+								},
+								{
+									"key": "KeepMeLogin",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/Login",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - Invalid EmailAddress (400) - Empty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "EmailAddress",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "e10adc3949ba59abbe56e057f20f883e",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/Login",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login -  Missing EmailAddress Parameter (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"InputParameterError\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Password",
+									"value": "e10adc3949ba59abbe56e057f20f883e",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://www.hogodoc.com/HoGo/api/v1/Login",
+							"protocol": "https",
+							"host": [
+								"www",
+								"hogodoc",
+								"com"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - Invalid EmailAddress (400) - Wrong Format",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "EmailAddress",
+									"value": "youtube.com",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "e10adc3949ba59abbe56e057f20f883e",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/Login",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - Invalid Password (400) - Empty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "EmailAddress",
+									"value": "tuyetphong001@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/Login",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - Invalid Password (401) - Wrong Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"WrongPassword\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "EmailAddress",
+									"value": "tuyetphong001@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "e10adc3949ba59abbe56e",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/Login",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login -  Missing Password Parameter (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"InputParameterError\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "EmailAddress",
+									"value": "tuyetphong001@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/Login",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - Invalid Password (401) - Not hash MD5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Password did not match\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "EmailAddress",
+									"value": "tuyetphong001@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/Login",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - KeepLogin Is Not Boolean (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "EmailAddress",
+									"value": "tuyetphong001@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "e10adc3949ba59abbe56e057f20f883e",
+									"type": "text"
+								},
+								{
+									"key": "KeepMeLogin",
+									"value": "abc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://www.hogodoc.com/HoGo/api/v1/Login",
+							"protocol": "https",
+							"host": [
+								"www",
+								"hogodoc",
+								"com"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GetDocumentList",
+			"item": [
+				{
+					"name": "GetDocumentList - Success - Default SortType(200)",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "9d2b6390b55740af9e6a85f29183bf8d",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentList",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentList - SearchString Matches(200)",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "9d2b6390b55740af9e6a85f29183bf8d",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentList",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentList - SearchString Unmatches(200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"OK\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "SearchString",
+									"value": "@#$%",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentList",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentList - Invalid SortType (400) - Empty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"InputParameterError\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentList",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentList - Valid SortType (1 to 8) (200) -",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"OK\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentList",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentList - Invalid SortType 0 (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentList",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentList - Invalid SortType 9 (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "9",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentList",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentList - Invalid SortType Is Characters  (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"InputParameterError\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "abc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentList",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentList - Missing SessionID Parameter (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"InputParameterError\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentList",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentList - Invalid SessionID - Empty(401)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"InputParameterError\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentList",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentList - Invalid SessionID (401)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"InputParameterError\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentList",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentList - Invalid SessionID - Expired (401)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"InputParameterError\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentList",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentList"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GetDocumentListDetail",
+			"item": [
+				{
+					"name": "GetDocumentListDetail - Success With Required Input & Default SortType  (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// ==============================================\r",
+									"// 1. LẤY GIÁ TRỊ SORTTYPE TỪ REQUEST\r",
+									"// ==============================================\r",
+									"let sortType;\r",
+									"\r",
+									"// Kiểm tra các nguồn có thể chứa SortType\r",
+									"try {\r",
+									"    if (pm.request.url.query.has(\"SortType\")) {\r",
+									"        sortType = parseInt(pm.request.url.query.get(\"SortType\"));\r",
+									"    } else if (pm.request.body && pm.request.body.urlencoded) {\r",
+									"        const bodyParams = pm.request.body.urlencoded.toObject();\r",
+									"        sortType = parseInt(bodyParams.SortType);\r",
+									"    } else if (pm.request.body && pm.request.body.raw) {\r",
+									"        const rawData = JSON.parse(pm.request.body.raw);\r",
+									"        sortType = parseInt(rawData.SortType);\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    console.error(\"Lỗi khi đọc SortType:\", e);\r",
+									"}\r",
+									"\r",
+									"// Sử dụng giá trị mặc định nếu không tìm thấy\r",
+									"sortType = sortType || 6;\r",
+									"console.log(\"SortType đang kiểm tra:\", sortType);\r",
+									"\r",
+									"// ==============================================\r",
+									"// 2. KIỂM TRA RESPONSE HỢP LỆ\r",
+									"// ==============================================\r",
+									"let responseData;\r",
+									"let documents = [];\r",
+									"\r",
+									"try {\r",
+									"    responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.test(\"Status phải là OK\", () => {\r",
+									"        pm.expect(responseData.status).to.eql(\"OK\");\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"document_detail phải tồn tại và là mảng\", () => {\r",
+									"        pm.expect(responseData.document_detail).to.be.an('array');\r",
+									"    });\r",
+									"\r",
+									"    documents = responseData.document_detail || [];\r",
+									"\r",
+									"    if (documents.length === 0) {\r",
+									"        pm.test(\"Không có documents để kiểm tra sort\", () => pm.expect(true).to.be.true);\r",
+									"        console.warn(\"Cảnh báo: Mảng documents trống\");\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    pm.test(\"Response JSON hợp lệ\", () => {\r",
+									"        pm.expect.fail(\"Không thể parse JSON response: \" + e.message);\r",
+									"    });\r",
+									"    console.error(\"Lỗi khi xử lý response:\", e);\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 3. HÀM HỖ TRỢ KIỂM TRA SORT (ĐÃ TỐI ƯU)\r",
+									"// ==============================================\r",
+									"function checkStringSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const current = String(data[i][field] || \"\").toLowerCase().trim();\r",
+									"            const next = String(data[i + 1][field] || \"\").toLowerCase().trim();\r",
+									"            \r",
+									"            if (isAscending ? current > next : current < next) {\r",
+									"                console.error(`Lỗi sort tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"function checkDateSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const currentDate = new Date(data[i][field] || null);\r",
+									"            const nextDate = new Date(data[i + 1][field] || null);\r",
+									"            \r",
+									"            if (isNaN(currentDate.getTime()) || isNaN(nextDate.getTime())) {\r",
+									"                console.error(`Ngày không hợp lệ tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"            \r",
+									"            if (isAscending ? currentDate > nextDate : currentDate < nextDate) {\r",
+									"                console.error(`Lỗi sort ngày tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_date: data[i][field],\r",
+									"                    next_date: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort date field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 4. LOGIC KIỂM TRA SORT THEO TỪNG LOẠI\r",
+									"// ==============================================\r",
+									"if (documents.length > 0) {\r",
+									"    let isSortedCorrectly = true;\r",
+									"    let testedField = \"\";\r",
+									"    let sortDescription = \"\";\r",
+									"\r",
+									"    switch (sortType) {\r",
+									"        case 1: // Title A-Z\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 2: // Title Z-A\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 3: // Description A-Z\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 4: // Description Z-A\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 5: // CreateDate cũ → mới\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Cũ → Mới)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 6: // CreateDate mới → cũ\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Mới → Cũ)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 7: // Status A-Z\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 8: // Status Z-A\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        default:\r",
+									"            pm.test(`SortType ${sortType} không hợp lệ`, () => {\r",
+									"                pm.expect.fail(`SortType phải từ 1-8, nhận được: ${sortType}`);\r",
+									"            });\r",
+									"            console.error(`SortType không hợp lệ: ${sortType}`);\r",
+									"            break;\r",
+									"    }\r",
+									"\r",
+									"    // ==============================================\r",
+									"    // 5. ASSERT KẾT QUẢ VÀ DEBUG\r",
+									"    // ==============================================\r",
+									"    if (sortType >= 1 && sortType <= 8) {\r",
+									"        if (isSortedCorrectly) {\r",
+									"            pm.test(`✅ Sắp xếp đúng theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect(true).to.be.true;\r",
+									"            });\r",
+									"        } else {\r",
+									"            pm.test(`❌ Sắp xếp SAI theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect.fail(`Xem console để biết vị trí lỗi sort`);\r",
+									"            });\r",
+									"        }\r",
+									"\r",
+									"        // Log thông tin debug\r",
+									"        console.log(\"=== THÔNG TIN DEBUG ===\");\r",
+									"        console.log(\"SortType kiểm tra:\", sortType, `(${sortDescription})`);\r",
+									"        console.log(\"Trường kiểm tra:\", testedField);\r",
+									"        console.log(\"Số lượng documents:\", documents.length);\r",
+									"        \r",
+									"        if (documents.length > 0) {\r",
+									"            console.log(\"Document đầu tiên:\", {\r",
+									"                id: documents[0].id,\r",
+									"                [testedField]: documents[0][testedField],\r",
+									"                title: documents[0].title,\r",
+									"                create_date: documents[0].create_date\r",
+									"            });\r",
+									"            \r",
+									"            console.log(\"Document cuối cùng:\", {\r",
+									"                id: documents[documents.length-1].id,\r",
+									"                [testedField]: documents[documents.length-1][testedField],\r",
+									"                title: documents[documents.length-1].title,\r",
+									"                create_date: documents[documents.length-1].create_date\r",
+									"            });\r",
+									"        }\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DisplayLength",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "DisplayStart",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "sEcho",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "8",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentListDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentListDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentListDetail - Valid SortType 1 (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"// ==============================================\r",
+									"// 1. LẤY GIÁ TRỊ SORTTYPE TỪ REQUEST\r",
+									"// ==============================================\r",
+									"let sortType;\r",
+									"\r",
+									"// Kiểm tra các nguồn có thể chứa SortType\r",
+									"try {\r",
+									"    if (pm.request.url.query.has(\"SortType\")) {\r",
+									"        sortType = parseInt(pm.request.url.query.get(\"SortType\"));\r",
+									"    } else if (pm.request.body && pm.request.body.urlencoded) {\r",
+									"        const bodyParams = pm.request.body.urlencoded.toObject();\r",
+									"        sortType = parseInt(bodyParams.SortType);\r",
+									"    } else if (pm.request.body && pm.request.body.raw) {\r",
+									"        const rawData = JSON.parse(pm.request.body.raw);\r",
+									"        sortType = parseInt(rawData.SortType);\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    console.error(\"Lỗi khi đọc SortType:\", e);\r",
+									"}\r",
+									"\r",
+									"// Sử dụng giá trị mặc định nếu không tìm thấy\r",
+									"sortType = sortType || 6;\r",
+									"console.log(\"SortType đang kiểm tra:\", sortType);\r",
+									"\r",
+									"// ==============================================\r",
+									"// 2. KIỂM TRA RESPONSE HỢP LỆ\r",
+									"// ==============================================\r",
+									"let responseData;\r",
+									"let documents = [];\r",
+									"\r",
+									"try {\r",
+									"    responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.test(\"Status phải là OK\", () => {\r",
+									"        pm.expect(responseData.status).to.eql(\"OK\");\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"document_detail phải tồn tại và là mảng\", () => {\r",
+									"        pm.expect(responseData.document_detail).to.be.an('array');\r",
+									"    });\r",
+									"\r",
+									"    documents = responseData.document_detail || [];\r",
+									"\r",
+									"    if (documents.length === 0) {\r",
+									"        pm.test(\"Không có documents để kiểm tra sort\", () => pm.expect(true).to.be.true);\r",
+									"        console.warn(\"Cảnh báo: Mảng documents trống\");\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    pm.test(\"Response JSON hợp lệ\", () => {\r",
+									"        pm.expect.fail(\"Không thể parse JSON response: \" + e.message);\r",
+									"    });\r",
+									"    console.error(\"Lỗi khi xử lý response:\", e);\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 3. HÀM HỖ TRỢ KIỂM TRA SORT (ĐÃ TỐI ƯU)\r",
+									"// ==============================================\r",
+									"function checkStringSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const current = String(data[i][field] || \"\").toLowerCase().trim();\r",
+									"            const next = String(data[i + 1][field] || \"\").toLowerCase().trim();\r",
+									"            \r",
+									"            if (isAscending ? current > next : current < next) {\r",
+									"                console.error(`Lỗi sort tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"function checkDateSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const currentDate = new Date(data[i][field] || null);\r",
+									"            const nextDate = new Date(data[i + 1][field] || null);\r",
+									"            \r",
+									"            if (isNaN(currentDate.getTime()) || isNaN(nextDate.getTime())) {\r",
+									"                console.error(`Ngày không hợp lệ tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"            \r",
+									"            if (isAscending ? currentDate > nextDate : currentDate < nextDate) {\r",
+									"                console.error(`Lỗi sort ngày tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_date: data[i][field],\r",
+									"                    next_date: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort date field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 4. LOGIC KIỂM TRA SORT THEO TỪNG LOẠI\r",
+									"// ==============================================\r",
+									"if (documents.length > 0) {\r",
+									"    let isSortedCorrectly = true;\r",
+									"    let testedField = \"\";\r",
+									"    let sortDescription = \"\";\r",
+									"\r",
+									"    switch (sortType) {\r",
+									"        case 1: // Title A-Z\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 2: // Title Z-A\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 3: // Description A-Z\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 4: // Description Z-A\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 5: // CreateDate cũ → mới\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Cũ → Mới)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 6: // CreateDate mới → cũ\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Mới → Cũ)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 7: // Status A-Z\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 8: // Status Z-A\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        default:\r",
+									"            pm.test(`SortType ${sortType} không hợp lệ`, () => {\r",
+									"                pm.expect.fail(`SortType phải từ 1-8, nhận được: ${sortType}`);\r",
+									"            });\r",
+									"            console.error(`SortType không hợp lệ: ${sortType}`);\r",
+									"            break;\r",
+									"    }\r",
+									"\r",
+									"    // ==============================================\r",
+									"    // 5. ASSERT KẾT QUẢ VÀ DEBUG\r",
+									"    // ==============================================\r",
+									"    if (sortType >= 1 && sortType <= 8) {\r",
+									"        if (isSortedCorrectly) {\r",
+									"            pm.test(`✅ Sắp xếp đúng theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect(true).to.be.true;\r",
+									"            });\r",
+									"        } else {\r",
+									"            pm.test(`❌ Sắp xếp SAI theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect.fail(`Xem console để biết vị trí lỗi sort`);\r",
+									"            });\r",
+									"        }\r",
+									"\r",
+									"        // Log thông tin debug\r",
+									"        console.log(\"=== THÔNG TIN DEBUG ===\");\r",
+									"        console.log(\"SortType kiểm tra:\", sortType, `(${sortDescription})`);\r",
+									"        console.log(\"Trường kiểm tra:\", testedField);\r",
+									"        console.log(\"Số lượng documents:\", documents.length);\r",
+									"        \r",
+									"        if (documents.length > 0) {\r",
+									"            console.log(\"Document đầu tiên:\", {\r",
+									"                id: documents[0].id,\r",
+									"                [testedField]: documents[0][testedField],\r",
+									"                title: documents[0].title,\r",
+									"                create_date: documents[0].create_date\r",
+									"            });\r",
+									"            \r",
+									"            console.log(\"Document cuối cùng:\", {\r",
+									"                id: documents[documents.length-1].id,\r",
+									"                [testedField]: documents[documents.length-1][testedField],\r",
+									"                title: documents[documents.length-1].title,\r",
+									"                create_date: documents[documents.length-1].create_date\r",
+									"            });\r",
+									"        }\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DisplayLength",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "DisplayStart",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "sEcho",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentListDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentListDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentListDetail - Valid SortType 2 (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"// ==============================================\r",
+									"// 1. LẤY GIÁ TRỊ SORTTYPE TỪ REQUEST\r",
+									"// ==============================================\r",
+									"let sortType;\r",
+									"\r",
+									"// Kiểm tra các nguồn có thể chứa SortType\r",
+									"try {\r",
+									"    if (pm.request.url.query.has(\"SortType\")) {\r",
+									"        sortType = parseInt(pm.request.url.query.get(\"SortType\"));\r",
+									"    } else if (pm.request.body && pm.request.body.urlencoded) {\r",
+									"        const bodyParams = pm.request.body.urlencoded.toObject();\r",
+									"        sortType = parseInt(bodyParams.SortType);\r",
+									"    } else if (pm.request.body && pm.request.body.raw) {\r",
+									"        const rawData = JSON.parse(pm.request.body.raw);\r",
+									"        sortType = parseInt(rawData.SortType);\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    console.error(\"Lỗi khi đọc SortType:\", e);\r",
+									"}\r",
+									"\r",
+									"// Sử dụng giá trị mặc định nếu không tìm thấy\r",
+									"sortType = sortType || 6;\r",
+									"console.log(\"SortType đang kiểm tra:\", sortType);\r",
+									"\r",
+									"// ==============================================\r",
+									"// 2. KIỂM TRA RESPONSE HỢP LỆ\r",
+									"// ==============================================\r",
+									"let responseData;\r",
+									"let documents = [];\r",
+									"\r",
+									"try {\r",
+									"    responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.test(\"Status phải là OK\", () => {\r",
+									"        pm.expect(responseData.status).to.eql(\"OK\");\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"document_detail phải tồn tại và là mảng\", () => {\r",
+									"        pm.expect(responseData.document_detail).to.be.an('array');\r",
+									"    });\r",
+									"\r",
+									"    documents = responseData.document_detail || [];\r",
+									"\r",
+									"    if (documents.length === 0) {\r",
+									"        pm.test(\"Không có documents để kiểm tra sort\", () => pm.expect(true).to.be.true);\r",
+									"        console.warn(\"Cảnh báo: Mảng documents trống\");\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    pm.test(\"Response JSON hợp lệ\", () => {\r",
+									"        pm.expect.fail(\"Không thể parse JSON response: \" + e.message);\r",
+									"    });\r",
+									"    console.error(\"Lỗi khi xử lý response:\", e);\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 3. HÀM HỖ TRỢ KIỂM TRA SORT (ĐÃ TỐI ƯU)\r",
+									"// ==============================================\r",
+									"function checkStringSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const current = String(data[i][field] || \"\").toLowerCase().trim();\r",
+									"            const next = String(data[i + 1][field] || \"\").toLowerCase().trim();\r",
+									"            \r",
+									"            if (isAscending ? current > next : current < next) {\r",
+									"                console.error(`Lỗi sort tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"function checkDateSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const currentDate = new Date(data[i][field] || null);\r",
+									"            const nextDate = new Date(data[i + 1][field] || null);\r",
+									"            \r",
+									"            if (isNaN(currentDate.getTime()) || isNaN(nextDate.getTime())) {\r",
+									"                console.error(`Ngày không hợp lệ tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"            \r",
+									"            if (isAscending ? currentDate > nextDate : currentDate < nextDate) {\r",
+									"                console.error(`Lỗi sort ngày tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_date: data[i][field],\r",
+									"                    next_date: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort date field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 4. LOGIC KIỂM TRA SORT THEO TỪNG LOẠI\r",
+									"// ==============================================\r",
+									"if (documents.length > 0) {\r",
+									"    let isSortedCorrectly = true;\r",
+									"    let testedField = \"\";\r",
+									"    let sortDescription = \"\";\r",
+									"\r",
+									"    switch (sortType) {\r",
+									"        case 1: // Title A-Z\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 2: // Title Z-A\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 3: // Description A-Z\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 4: // Description Z-A\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 5: // CreateDate cũ → mới\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Cũ → Mới)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 6: // CreateDate mới → cũ\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Mới → Cũ)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 7: // Status A-Z\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 8: // Status Z-A\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        default:\r",
+									"            pm.test(`SortType ${sortType} không hợp lệ`, () => {\r",
+									"                pm.expect.fail(`SortType phải từ 1-8, nhận được: ${sortType}`);\r",
+									"            });\r",
+									"            console.error(`SortType không hợp lệ: ${sortType}`);\r",
+									"            break;\r",
+									"    }\r",
+									"\r",
+									"    // ==============================================\r",
+									"    // 5. ASSERT KẾT QUẢ VÀ DEBUG\r",
+									"    // ==============================================\r",
+									"    if (sortType >= 1 && sortType <= 8) {\r",
+									"        if (isSortedCorrectly) {\r",
+									"            pm.test(`✅ Sắp xếp đúng theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect(true).to.be.true;\r",
+									"            });\r",
+									"        } else {\r",
+									"            pm.test(`❌ Sắp xếp SAI theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect.fail(`Xem console để biết vị trí lỗi sort`);\r",
+									"            });\r",
+									"        }\r",
+									"\r",
+									"        // Log thông tin debug\r",
+									"        console.log(\"=== THÔNG TIN DEBUG ===\");\r",
+									"        console.log(\"SortType kiểm tra:\", sortType, `(${sortDescription})`);\r",
+									"        console.log(\"Trường kiểm tra:\", testedField);\r",
+									"        console.log(\"Số lượng documents:\", documents.length);\r",
+									"        \r",
+									"        if (documents.length > 0) {\r",
+									"            console.log(\"Document đầu tiên:\", {\r",
+									"                id: documents[0].id,\r",
+									"                [testedField]: documents[0][testedField],\r",
+									"                title: documents[0].title,\r",
+									"                create_date: documents[0].create_date\r",
+									"            });\r",
+									"            \r",
+									"            console.log(\"Document cuối cùng:\", {\r",
+									"                id: documents[documents.length-1].id,\r",
+									"                [testedField]: documents[documents.length-1][testedField],\r",
+									"                title: documents[documents.length-1].title,\r",
+									"                create_date: documents[documents.length-1].create_date\r",
+									"            });\r",
+									"        }\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DisplayLength",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "DisplayStart",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "sEcho",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentListDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentListDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentListDetail - Valid SortType 3 (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"// ==============================================\r",
+									"// 1. LẤY GIÁ TRỊ SORTTYPE TỪ REQUEST\r",
+									"// ==============================================\r",
+									"let sortType;\r",
+									"\r",
+									"// Kiểm tra các nguồn có thể chứa SortType\r",
+									"try {\r",
+									"    if (pm.request.url.query.has(\"SortType\")) {\r",
+									"        sortType = parseInt(pm.request.url.query.get(\"SortType\"));\r",
+									"    } else if (pm.request.body && pm.request.body.urlencoded) {\r",
+									"        const bodyParams = pm.request.body.urlencoded.toObject();\r",
+									"        sortType = parseInt(bodyParams.SortType);\r",
+									"    } else if (pm.request.body && pm.request.body.raw) {\r",
+									"        const rawData = JSON.parse(pm.request.body.raw);\r",
+									"        sortType = parseInt(rawData.SortType);\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    console.error(\"Lỗi khi đọc SortType:\", e);\r",
+									"}\r",
+									"\r",
+									"// Sử dụng giá trị mặc định nếu không tìm thấy\r",
+									"sortType = sortType || 6;\r",
+									"console.log(\"SortType đang kiểm tra:\", sortType);\r",
+									"\r",
+									"// ==============================================\r",
+									"// 2. KIỂM TRA RESPONSE HỢP LỆ\r",
+									"// ==============================================\r",
+									"let responseData;\r",
+									"let documents = [];\r",
+									"\r",
+									"try {\r",
+									"    responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.test(\"Status phải là OK\", () => {\r",
+									"        pm.expect(responseData.status).to.eql(\"OK\");\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"document_detail phải tồn tại và là mảng\", () => {\r",
+									"        pm.expect(responseData.document_detail).to.be.an('array');\r",
+									"    });\r",
+									"\r",
+									"    documents = responseData.document_detail || [];\r",
+									"\r",
+									"    if (documents.length === 0) {\r",
+									"        pm.test(\"Không có documents để kiểm tra sort\", () => pm.expect(true).to.be.true);\r",
+									"        console.warn(\"Cảnh báo: Mảng documents trống\");\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    pm.test(\"Response JSON hợp lệ\", () => {\r",
+									"        pm.expect.fail(\"Không thể parse JSON response: \" + e.message);\r",
+									"    });\r",
+									"    console.error(\"Lỗi khi xử lý response:\", e);\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 3. HÀM HỖ TRỢ KIỂM TRA SORT (ĐÃ TỐI ƯU)\r",
+									"// ==============================================\r",
+									"function checkStringSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const current = String(data[i][field] || \"\").toLowerCase().trim();\r",
+									"            const next = String(data[i + 1][field] || \"\").toLowerCase().trim();\r",
+									"            \r",
+									"            if (isAscending ? current > next : current < next) {\r",
+									"                console.error(`Lỗi sort tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"function checkDateSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const currentDate = new Date(data[i][field] || null);\r",
+									"            const nextDate = new Date(data[i + 1][field] || null);\r",
+									"            \r",
+									"            if (isNaN(currentDate.getTime()) || isNaN(nextDate.getTime())) {\r",
+									"                console.error(`Ngày không hợp lệ tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"            \r",
+									"            if (isAscending ? currentDate > nextDate : currentDate < nextDate) {\r",
+									"                console.error(`Lỗi sort ngày tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_date: data[i][field],\r",
+									"                    next_date: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort date field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 4. LOGIC KIỂM TRA SORT THEO TỪNG LOẠI\r",
+									"// ==============================================\r",
+									"if (documents.length > 0) {\r",
+									"    let isSortedCorrectly = true;\r",
+									"    let testedField = \"\";\r",
+									"    let sortDescription = \"\";\r",
+									"\r",
+									"    switch (sortType) {\r",
+									"        case 1: // Title A-Z\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 2: // Title Z-A\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 3: // Description A-Z\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 4: // Description Z-A\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 5: // CreateDate cũ → mới\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Cũ → Mới)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 6: // CreateDate mới → cũ\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Mới → Cũ)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 7: // Status A-Z\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 8: // Status Z-A\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        default:\r",
+									"            pm.test(`SortType ${sortType} không hợp lệ`, () => {\r",
+									"                pm.expect.fail(`SortType phải từ 1-8, nhận được: ${sortType}`);\r",
+									"            });\r",
+									"            console.error(`SortType không hợp lệ: ${sortType}`);\r",
+									"            break;\r",
+									"    }\r",
+									"\r",
+									"    // ==============================================\r",
+									"    // 5. ASSERT KẾT QUẢ VÀ DEBUG\r",
+									"    // ==============================================\r",
+									"    if (sortType >= 1 && sortType <= 8) {\r",
+									"        if (isSortedCorrectly) {\r",
+									"            pm.test(`✅ Sắp xếp đúng theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect(true).to.be.true;\r",
+									"            });\r",
+									"        } else {\r",
+									"            pm.test(`❌ Sắp xếp SAI theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect.fail(`Xem console để biết vị trí lỗi sort`);\r",
+									"            });\r",
+									"        }\r",
+									"\r",
+									"        // Log thông tin debug\r",
+									"        console.log(\"=== THÔNG TIN DEBUG ===\");\r",
+									"        console.log(\"SortType kiểm tra:\", sortType, `(${sortDescription})`);\r",
+									"        console.log(\"Trường kiểm tra:\", testedField);\r",
+									"        console.log(\"Số lượng documents:\", documents.length);\r",
+									"        \r",
+									"        if (documents.length > 0) {\r",
+									"            console.log(\"Document đầu tiên:\", {\r",
+									"                id: documents[0].id,\r",
+									"                [testedField]: documents[0][testedField],\r",
+									"                title: documents[0].title,\r",
+									"                create_date: documents[0].create_date\r",
+									"            });\r",
+									"            \r",
+									"            console.log(\"Document cuối cùng:\", {\r",
+									"                id: documents[documents.length-1].id,\r",
+									"                [testedField]: documents[documents.length-1][testedField],\r",
+									"                title: documents[documents.length-1].title,\r",
+									"                create_date: documents[documents.length-1].create_date\r",
+									"            });\r",
+									"        }\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DisplayLength",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "DisplayStart",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "sEcho",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "3EE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentListDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentListDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentListDetail - Valid SortType 4 (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"// ==============================================\r",
+									"// 1. LẤY GIÁ TRỊ SORTTYPE TỪ REQUEST\r",
+									"// ==============================================\r",
+									"let sortType;\r",
+									"\r",
+									"// Kiểm tra các nguồn có thể chứa SortType\r",
+									"try {\r",
+									"    if (pm.request.url.query.has(\"SortType\")) {\r",
+									"        sortType = parseInt(pm.request.url.query.get(\"SortType\"));\r",
+									"    } else if (pm.request.body && pm.request.body.urlencoded) {\r",
+									"        const bodyParams = pm.request.body.urlencoded.toObject();\r",
+									"        sortType = parseInt(bodyParams.SortType);\r",
+									"    } else if (pm.request.body && pm.request.body.raw) {\r",
+									"        const rawData = JSON.parse(pm.request.body.raw);\r",
+									"        sortType = parseInt(rawData.SortType);\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    console.error(\"Lỗi khi đọc SortType:\", e);\r",
+									"}\r",
+									"\r",
+									"// Sử dụng giá trị mặc định nếu không tìm thấy\r",
+									"sortType = sortType || 6;\r",
+									"console.log(\"SortType đang kiểm tra:\", sortType);\r",
+									"\r",
+									"// ==============================================\r",
+									"// 2. KIỂM TRA RESPONSE HỢP LỆ\r",
+									"// ==============================================\r",
+									"let responseData;\r",
+									"let documents = [];\r",
+									"\r",
+									"try {\r",
+									"    responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.test(\"Status phải là OK\", () => {\r",
+									"        pm.expect(responseData.status).to.eql(\"OK\");\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"document_detail phải tồn tại và là mảng\", () => {\r",
+									"        pm.expect(responseData.document_detail).to.be.an('array');\r",
+									"    });\r",
+									"\r",
+									"    documents = responseData.document_detail || [];\r",
+									"\r",
+									"    if (documents.length === 0) {\r",
+									"        pm.test(\"Không có documents để kiểm tra sort\", () => pm.expect(true).to.be.true);\r",
+									"        console.warn(\"Cảnh báo: Mảng documents trống\");\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    pm.test(\"Response JSON hợp lệ\", () => {\r",
+									"        pm.expect.fail(\"Không thể parse JSON response: \" + e.message);\r",
+									"    });\r",
+									"    console.error(\"Lỗi khi xử lý response:\", e);\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 3. HÀM HỖ TRỢ KIỂM TRA SORT (ĐÃ TỐI ƯU)\r",
+									"// ==============================================\r",
+									"function checkStringSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const current = String(data[i][field] || \"\").toLowerCase().trim();\r",
+									"            const next = String(data[i + 1][field] || \"\").toLowerCase().trim();\r",
+									"            \r",
+									"            if (isAscending ? current > next : current < next) {\r",
+									"                console.error(`Lỗi sort tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"function checkDateSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const currentDate = new Date(data[i][field] || null);\r",
+									"            const nextDate = new Date(data[i + 1][field] || null);\r",
+									"            \r",
+									"            if (isNaN(currentDate.getTime()) || isNaN(nextDate.getTime())) {\r",
+									"                console.error(`Ngày không hợp lệ tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"            \r",
+									"            if (isAscending ? currentDate > nextDate : currentDate < nextDate) {\r",
+									"                console.error(`Lỗi sort ngày tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_date: data[i][field],\r",
+									"                    next_date: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort date field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 4. LOGIC KIỂM TRA SORT THEO TỪNG LOẠI\r",
+									"// ==============================================\r",
+									"if (documents.length > 0) {\r",
+									"    let isSortedCorrectly = true;\r",
+									"    let testedField = \"\";\r",
+									"    let sortDescription = \"\";\r",
+									"\r",
+									"    switch (sortType) {\r",
+									"        case 1: // Title A-Z\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 2: // Title Z-A\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 3: // Description A-Z\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 4: // Description Z-A\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 5: // CreateDate cũ → mới\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Cũ → Mới)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 6: // CreateDate mới → cũ\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Mới → Cũ)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 7: // Status A-Z\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 8: // Status Z-A\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        default:\r",
+									"            pm.test(`SortType ${sortType} không hợp lệ`, () => {\r",
+									"                pm.expect.fail(`SortType phải từ 1-8, nhận được: ${sortType}`);\r",
+									"            });\r",
+									"            console.error(`SortType không hợp lệ: ${sortType}`);\r",
+									"            break;\r",
+									"    }\r",
+									"\r",
+									"    // ==============================================\r",
+									"    // 5. ASSERT KẾT QUẢ VÀ DEBUG\r",
+									"    // ==============================================\r",
+									"    if (sortType >= 1 && sortType <= 8) {\r",
+									"        if (isSortedCorrectly) {\r",
+									"            pm.test(`✅ Sắp xếp đúng theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect(true).to.be.true;\r",
+									"            });\r",
+									"        } else {\r",
+									"            pm.test(`❌ Sắp xếp SAI theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect.fail(`Xem console để biết vị trí lỗi sort`);\r",
+									"            });\r",
+									"        }\r",
+									"\r",
+									"        // Log thông tin debug\r",
+									"        console.log(\"=== THÔNG TIN DEBUG ===\");\r",
+									"        console.log(\"SortType kiểm tra:\", sortType, `(${sortDescription})`);\r",
+									"        console.log(\"Trường kiểm tra:\", testedField);\r",
+									"        console.log(\"Số lượng documents:\", documents.length);\r",
+									"        \r",
+									"        if (documents.length > 0) {\r",
+									"            console.log(\"Document đầu tiên:\", {\r",
+									"                id: documents[0].id,\r",
+									"                [testedField]: documents[0][testedField],\r",
+									"                title: documents[0].title,\r",
+									"                create_date: documents[0].create_date\r",
+									"            });\r",
+									"            \r",
+									"            console.log(\"Document cuối cùng:\", {\r",
+									"                id: documents[documents.length-1].id,\r",
+									"                [testedField]: documents[documents.length-1][testedField],\r",
+									"                title: documents[documents.length-1].title,\r",
+									"                create_date: documents[documents.length-1].create_date\r",
+									"            });\r",
+									"        }\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DisplayLength",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "DisplayStart",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "sEcho",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentListDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentListDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentListDetail - Valid SortType 5 (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"// ==============================================\r",
+									"// 1. LẤY GIÁ TRỊ SORTTYPE TỪ REQUEST\r",
+									"// ==============================================\r",
+									"let sortType;\r",
+									"\r",
+									"// Kiểm tra các nguồn có thể chứa SortType\r",
+									"try {\r",
+									"    if (pm.request.url.query.has(\"SortType\")) {\r",
+									"        sortType = parseInt(pm.request.url.query.get(\"SortType\"));\r",
+									"    } else if (pm.request.body && pm.request.body.urlencoded) {\r",
+									"        const bodyParams = pm.request.body.urlencoded.toObject();\r",
+									"        sortType = parseInt(bodyParams.SortType);\r",
+									"    } else if (pm.request.body && pm.request.body.raw) {\r",
+									"        const rawData = JSON.parse(pm.request.body.raw);\r",
+									"        sortType = parseInt(rawData.SortType);\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    console.error(\"Lỗi khi đọc SortType:\", e);\r",
+									"}\r",
+									"\r",
+									"// Sử dụng giá trị mặc định nếu không tìm thấy\r",
+									"sortType = sortType || 6;\r",
+									"console.log(\"SortType đang kiểm tra:\", sortType);\r",
+									"\r",
+									"// ==============================================\r",
+									"// 2. KIỂM TRA RESPONSE HỢP LỆ\r",
+									"// ==============================================\r",
+									"let responseData;\r",
+									"let documents = [];\r",
+									"\r",
+									"try {\r",
+									"    responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.test(\"Status phải là OK\", () => {\r",
+									"        pm.expect(responseData.status).to.eql(\"OK\");\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"document_detail phải tồn tại và là mảng\", () => {\r",
+									"        pm.expect(responseData.document_detail).to.be.an('array');\r",
+									"    });\r",
+									"\r",
+									"    documents = responseData.document_detail || [];\r",
+									"\r",
+									"    if (documents.length === 0) {\r",
+									"        pm.test(\"Không có documents để kiểm tra sort\", () => pm.expect(true).to.be.true);\r",
+									"        console.warn(\"Cảnh báo: Mảng documents trống\");\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    pm.test(\"Response JSON hợp lệ\", () => {\r",
+									"        pm.expect.fail(\"Không thể parse JSON response: \" + e.message);\r",
+									"    });\r",
+									"    console.error(\"Lỗi khi xử lý response:\", e);\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 3. HÀM HỖ TRỢ KIỂM TRA SORT (ĐÃ TỐI ƯU)\r",
+									"// ==============================================\r",
+									"function checkStringSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const current = String(data[i][field] || \"\").toLowerCase().trim();\r",
+									"            const next = String(data[i + 1][field] || \"\").toLowerCase().trim();\r",
+									"            \r",
+									"            if (isAscending ? current > next : current < next) {\r",
+									"                console.error(`Lỗi sort tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"function checkDateSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const currentDate = new Date(data[i][field] || null);\r",
+									"            const nextDate = new Date(data[i + 1][field] || null);\r",
+									"            \r",
+									"            if (isNaN(currentDate.getTime()) || isNaN(nextDate.getTime())) {\r",
+									"                console.error(`Ngày không hợp lệ tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"            \r",
+									"            if (isAscending ? currentDate > nextDate : currentDate < nextDate) {\r",
+									"                console.error(`Lỗi sort ngày tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_date: data[i][field],\r",
+									"                    next_date: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort date field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 4. LOGIC KIỂM TRA SORT THEO TỪNG LOẠI\r",
+									"// ==============================================\r",
+									"if (documents.length > 0) {\r",
+									"    let isSortedCorrectly = true;\r",
+									"    let testedField = \"\";\r",
+									"    let sortDescription = \"\";\r",
+									"\r",
+									"    switch (sortType) {\r",
+									"        case 1: // Title A-Z\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 2: // Title Z-A\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 3: // Description A-Z\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 4: // Description Z-A\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 5: // CreateDate cũ → mới\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Cũ → Mới)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 6: // CreateDate mới → cũ\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Mới → Cũ)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 7: // Status A-Z\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 8: // Status Z-A\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        default:\r",
+									"            pm.test(`SortType ${sortType} không hợp lệ`, () => {\r",
+									"                pm.expect.fail(`SortType phải từ 1-8, nhận được: ${sortType}`);\r",
+									"            });\r",
+									"            console.error(`SortType không hợp lệ: ${sortType}`);\r",
+									"            break;\r",
+									"    }\r",
+									"\r",
+									"    // ==============================================\r",
+									"    // 5. ASSERT KẾT QUẢ VÀ DEBUG\r",
+									"    // ==============================================\r",
+									"    if (sortType >= 1 && sortType <= 8) {\r",
+									"        if (isSortedCorrectly) {\r",
+									"            pm.test(`✅ Sắp xếp đúng theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect(true).to.be.true;\r",
+									"            });\r",
+									"        } else {\r",
+									"            pm.test(`❌ Sắp xếp SAI theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect.fail(`Xem console để biết vị trí lỗi sort`);\r",
+									"            });\r",
+									"        }\r",
+									"\r",
+									"        // Log thông tin debug\r",
+									"        console.log(\"=== THÔNG TIN DEBUG ===\");\r",
+									"        console.log(\"SortType kiểm tra:\", sortType, `(${sortDescription})`);\r",
+									"        console.log(\"Trường kiểm tra:\", testedField);\r",
+									"        console.log(\"Số lượng documents:\", documents.length);\r",
+									"        \r",
+									"        if (documents.length > 0) {\r",
+									"            console.log(\"Document đầu tiên:\", {\r",
+									"                id: documents[0].id,\r",
+									"                [testedField]: documents[0][testedField],\r",
+									"                title: documents[0].title,\r",
+									"                create_date: documents[0].create_date\r",
+									"            });\r",
+									"            \r",
+									"            console.log(\"Document cuối cùng:\", {\r",
+									"                id: documents[documents.length-1].id,\r",
+									"                [testedField]: documents[documents.length-1][testedField],\r",
+									"                title: documents[documents.length-1].title,\r",
+									"                create_date: documents[documents.length-1].create_date\r",
+									"            });\r",
+									"        }\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DisplayLength",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "DisplayStart",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "sEcho",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentListDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentListDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentListDetail - Valid SortType 6 (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"// ==============================================\r",
+									"// 1. LẤY GIÁ TRỊ SORTTYPE TỪ REQUEST\r",
+									"// ==============================================\r",
+									"let sortType;\r",
+									"\r",
+									"// Kiểm tra các nguồn có thể chứa SortType\r",
+									"try {\r",
+									"    if (pm.request.url.query.has(\"SortType\")) {\r",
+									"        sortType = parseInt(pm.request.url.query.get(\"SortType\"));\r",
+									"    } else if (pm.request.body && pm.request.body.urlencoded) {\r",
+									"        const bodyParams = pm.request.body.urlencoded.toObject();\r",
+									"        sortType = parseInt(bodyParams.SortType);\r",
+									"    } else if (pm.request.body && pm.request.body.raw) {\r",
+									"        const rawData = JSON.parse(pm.request.body.raw);\r",
+									"        sortType = parseInt(rawData.SortType);\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    console.error(\"Lỗi khi đọc SortType:\", e);\r",
+									"}\r",
+									"\r",
+									"// Sử dụng giá trị mặc định nếu không tìm thấy\r",
+									"sortType = sortType || 6;\r",
+									"console.log(\"SortType đang kiểm tra:\", sortType);\r",
+									"\r",
+									"// ==============================================\r",
+									"// 2. KIỂM TRA RESPONSE HỢP LỆ\r",
+									"// ==============================================\r",
+									"let responseData;\r",
+									"let documents = [];\r",
+									"\r",
+									"try {\r",
+									"    responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.test(\"Status phải là OK\", () => {\r",
+									"        pm.expect(responseData.status).to.eql(\"OK\");\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"document_detail phải tồn tại và là mảng\", () => {\r",
+									"        pm.expect(responseData.document_detail).to.be.an('array');\r",
+									"    });\r",
+									"\r",
+									"    documents = responseData.document_detail || [];\r",
+									"\r",
+									"    if (documents.length === 0) {\r",
+									"        pm.test(\"Không có documents để kiểm tra sort\", () => pm.expect(true).to.be.true);\r",
+									"        console.warn(\"Cảnh báo: Mảng documents trống\");\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    pm.test(\"Response JSON hợp lệ\", () => {\r",
+									"        pm.expect.fail(\"Không thể parse JSON response: \" + e.message);\r",
+									"    });\r",
+									"    console.error(\"Lỗi khi xử lý response:\", e);\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 3. HÀM HỖ TRỢ KIỂM TRA SORT (ĐÃ TỐI ƯU)\r",
+									"// ==============================================\r",
+									"function checkStringSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const current = String(data[i][field] || \"\").toLowerCase().trim();\r",
+									"            const next = String(data[i + 1][field] || \"\").toLowerCase().trim();\r",
+									"            \r",
+									"            if (isAscending ? current > next : current < next) {\r",
+									"                console.error(`Lỗi sort tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"function checkDateSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const currentDate = new Date(data[i][field] || null);\r",
+									"            const nextDate = new Date(data[i + 1][field] || null);\r",
+									"            \r",
+									"            if (isNaN(currentDate.getTime()) || isNaN(nextDate.getTime())) {\r",
+									"                console.error(`Ngày không hợp lệ tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"            \r",
+									"            if (isAscending ? currentDate > nextDate : currentDate < nextDate) {\r",
+									"                console.error(`Lỗi sort ngày tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_date: data[i][field],\r",
+									"                    next_date: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort date field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 4. LOGIC KIỂM TRA SORT THEO TỪNG LOẠI\r",
+									"// ==============================================\r",
+									"if (documents.length > 0) {\r",
+									"    let isSortedCorrectly = true;\r",
+									"    let testedField = \"\";\r",
+									"    let sortDescription = \"\";\r",
+									"\r",
+									"    switch (sortType) {\r",
+									"        case 1: // Title A-Z\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 2: // Title Z-A\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 3: // Description A-Z\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 4: // Description Z-A\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 5: // CreateDate cũ → mới\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Cũ → Mới)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 6: // CreateDate mới → cũ\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Mới → Cũ)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 7: // Status A-Z\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 8: // Status Z-A\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        default:\r",
+									"            pm.test(`SortType ${sortType} không hợp lệ`, () => {\r",
+									"                pm.expect.fail(`SortType phải từ 1-8, nhận được: ${sortType}`);\r",
+									"            });\r",
+									"            console.error(`SortType không hợp lệ: ${sortType}`);\r",
+									"            break;\r",
+									"    }\r",
+									"\r",
+									"    // ==============================================\r",
+									"    // 5. ASSERT KẾT QUẢ VÀ DEBUG\r",
+									"    // ==============================================\r",
+									"    if (sortType >= 1 && sortType <= 8) {\r",
+									"        if (isSortedCorrectly) {\r",
+									"            pm.test(`✅ Sắp xếp đúng theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect(true).to.be.true;\r",
+									"            });\r",
+									"        } else {\r",
+									"            pm.test(`❌ Sắp xếp SAI theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect.fail(`Xem console để biết vị trí lỗi sort`);\r",
+									"            });\r",
+									"        }\r",
+									"\r",
+									"        // Log thông tin debug\r",
+									"        console.log(\"=== THÔNG TIN DEBUG ===\");\r",
+									"        console.log(\"SortType kiểm tra:\", sortType, `(${sortDescription})`);\r",
+									"        console.log(\"Trường kiểm tra:\", testedField);\r",
+									"        console.log(\"Số lượng documents:\", documents.length);\r",
+									"        \r",
+									"        if (documents.length > 0) {\r",
+									"            console.log(\"Document đầu tiên:\", {\r",
+									"                id: documents[0].id,\r",
+									"                [testedField]: documents[0][testedField],\r",
+									"                title: documents[0].title,\r",
+									"                create_date: documents[0].create_date\r",
+									"            });\r",
+									"            \r",
+									"            console.log(\"Document cuối cùng:\", {\r",
+									"                id: documents[documents.length-1].id,\r",
+									"                [testedField]: documents[documents.length-1][testedField],\r",
+									"                title: documents[documents.length-1].title,\r",
+									"                create_date: documents[documents.length-1].create_date\r",
+									"            });\r",
+									"        }\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DisplayLength",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "DisplayStart",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "sEcho",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentListDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentListDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentListDetail - Valid SortType 7 (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"// ==============================================\r",
+									"// 1. LẤY GIÁ TRỊ SORTTYPE TỪ REQUEST\r",
+									"// ==============================================\r",
+									"let sortType;\r",
+									"\r",
+									"// Kiểm tra các nguồn có thể chứa SortType\r",
+									"try {\r",
+									"    if (pm.request.url.query.has(\"SortType\")) {\r",
+									"        sortType = parseInt(pm.request.url.query.get(\"SortType\"));\r",
+									"    } else if (pm.request.body && pm.request.body.urlencoded) {\r",
+									"        const bodyParams = pm.request.body.urlencoded.toObject();\r",
+									"        sortType = parseInt(bodyParams.SortType);\r",
+									"    } else if (pm.request.body && pm.request.body.raw) {\r",
+									"        const rawData = JSON.parse(pm.request.body.raw);\r",
+									"        sortType = parseInt(rawData.SortType);\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    console.error(\"Lỗi khi đọc SortType:\", e);\r",
+									"}\r",
+									"\r",
+									"// Sử dụng giá trị mặc định nếu không tìm thấy\r",
+									"sortType = sortType || 6;\r",
+									"console.log(\"SortType đang kiểm tra:\", sortType);\r",
+									"\r",
+									"// ==============================================\r",
+									"// 2. KIỂM TRA RESPONSE HỢP LỆ\r",
+									"// ==============================================\r",
+									"let responseData;\r",
+									"let documents = [];\r",
+									"\r",
+									"try {\r",
+									"    responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.test(\"Status phải là OK\", () => {\r",
+									"        pm.expect(responseData.status).to.eql(\"OK\");\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"document_detail phải tồn tại và là mảng\", () => {\r",
+									"        pm.expect(responseData.document_detail).to.be.an('array');\r",
+									"    });\r",
+									"\r",
+									"    documents = responseData.document_detail || [];\r",
+									"\r",
+									"    if (documents.length === 0) {\r",
+									"        pm.test(\"Không có documents để kiểm tra sort\", () => pm.expect(true).to.be.true);\r",
+									"        console.warn(\"Cảnh báo: Mảng documents trống\");\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    pm.test(\"Response JSON hợp lệ\", () => {\r",
+									"        pm.expect.fail(\"Không thể parse JSON response: \" + e.message);\r",
+									"    });\r",
+									"    console.error(\"Lỗi khi xử lý response:\", e);\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 3. HÀM HỖ TRỢ KIỂM TRA SORT (ĐÃ TỐI ƯU)\r",
+									"// ==============================================\r",
+									"function checkStringSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const current = String(data[i][field] || \"\").toLowerCase().trim();\r",
+									"            const next = String(data[i + 1][field] || \"\").toLowerCase().trim();\r",
+									"            \r",
+									"            if (isAscending ? current > next : current < next) {\r",
+									"                console.error(`Lỗi sort tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"function checkDateSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const currentDate = new Date(data[i][field] || null);\r",
+									"            const nextDate = new Date(data[i + 1][field] || null);\r",
+									"            \r",
+									"            if (isNaN(currentDate.getTime()) || isNaN(nextDate.getTime())) {\r",
+									"                console.error(`Ngày không hợp lệ tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"            \r",
+									"            if (isAscending ? currentDate > nextDate : currentDate < nextDate) {\r",
+									"                console.error(`Lỗi sort ngày tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_date: data[i][field],\r",
+									"                    next_date: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort date field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 4. LOGIC KIỂM TRA SORT THEO TỪNG LOẠI\r",
+									"// ==============================================\r",
+									"if (documents.length > 0) {\r",
+									"    let isSortedCorrectly = true;\r",
+									"    let testedField = \"\";\r",
+									"    let sortDescription = \"\";\r",
+									"\r",
+									"    switch (sortType) {\r",
+									"        case 1: // Title A-Z\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 2: // Title Z-A\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 3: // Description A-Z\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 4: // Description Z-A\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 5: // CreateDate cũ → mới\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Cũ → Mới)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 6: // CreateDate mới → cũ\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Mới → Cũ)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 7: // Status A-Z\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 8: // Status Z-A\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        default:\r",
+									"            pm.test(`SortType ${sortType} không hợp lệ`, () => {\r",
+									"                pm.expect.fail(`SortType phải từ 1-8, nhận được: ${sortType}`);\r",
+									"            });\r",
+									"            console.error(`SortType không hợp lệ: ${sortType}`);\r",
+									"            break;\r",
+									"    }\r",
+									"\r",
+									"    // ==============================================\r",
+									"    // 5. ASSERT KẾT QUẢ VÀ DEBUG\r",
+									"    // ==============================================\r",
+									"    if (sortType >= 1 && sortType <= 8) {\r",
+									"        if (isSortedCorrectly) {\r",
+									"            pm.test(`✅ Sắp xếp đúng theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect(true).to.be.true;\r",
+									"            });\r",
+									"        } else {\r",
+									"            pm.test(`❌ Sắp xếp SAI theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect.fail(`Xem console để biết vị trí lỗi sort`);\r",
+									"            });\r",
+									"        }\r",
+									"\r",
+									"        // Log thông tin debug\r",
+									"        console.log(\"=== THÔNG TIN DEBUG ===\");\r",
+									"        console.log(\"SortType kiểm tra:\", sortType, `(${sortDescription})`);\r",
+									"        console.log(\"Trường kiểm tra:\", testedField);\r",
+									"        console.log(\"Số lượng documents:\", documents.length);\r",
+									"        \r",
+									"        if (documents.length > 0) {\r",
+									"            console.log(\"Document đầu tiên:\", {\r",
+									"                id: documents[0].id,\r",
+									"                [testedField]: documents[0][testedField],\r",
+									"                title: documents[0].title,\r",
+									"                create_date: documents[0].create_date\r",
+									"            });\r",
+									"            \r",
+									"            console.log(\"Document cuối cùng:\", {\r",
+									"                id: documents[documents.length-1].id,\r",
+									"                [testedField]: documents[documents.length-1][testedField],\r",
+									"                title: documents[documents.length-1].title,\r",
+									"                create_date: documents[documents.length-1].create_date\r",
+									"            });\r",
+									"        }\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DisplayLength",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "DisplayStart",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "sEcho",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentListDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentListDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentListDetail - Valid SortType 8 (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"// ==============================================\r",
+									"// 1. LẤY GIÁ TRỊ SORTTYPE TỪ REQUEST\r",
+									"// ==============================================\r",
+									"let sortType;\r",
+									"\r",
+									"// Kiểm tra các nguồn có thể chứa SortType\r",
+									"try {\r",
+									"    if (pm.request.url.query.has(\"SortType\")) {\r",
+									"        sortType = parseInt(pm.request.url.query.get(\"SortType\"));\r",
+									"    } else if (pm.request.body && pm.request.body.urlencoded) {\r",
+									"        const bodyParams = pm.request.body.urlencoded.toObject();\r",
+									"        sortType = parseInt(bodyParams.SortType);\r",
+									"    } else if (pm.request.body && pm.request.body.raw) {\r",
+									"        const rawData = JSON.parse(pm.request.body.raw);\r",
+									"        sortType = parseInt(rawData.SortType);\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    console.error(\"Lỗi khi đọc SortType:\", e);\r",
+									"}\r",
+									"\r",
+									"// Sử dụng giá trị mặc định nếu không tìm thấy\r",
+									"sortType = sortType || 6;\r",
+									"console.log(\"SortType đang kiểm tra:\", sortType);\r",
+									"\r",
+									"// ==============================================\r",
+									"// 2. KIỂM TRA RESPONSE HỢP LỆ\r",
+									"// ==============================================\r",
+									"let responseData;\r",
+									"let documents = [];\r",
+									"\r",
+									"try {\r",
+									"    responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.test(\"Status phải là OK\", () => {\r",
+									"        pm.expect(responseData.status).to.eql(\"OK\");\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"document_detail phải tồn tại và là mảng\", () => {\r",
+									"        pm.expect(responseData.document_detail).to.be.an('array');\r",
+									"    });\r",
+									"\r",
+									"    documents = responseData.document_detail || [];\r",
+									"\r",
+									"    if (documents.length === 0) {\r",
+									"        pm.test(\"Không có documents để kiểm tra sort\", () => pm.expect(true).to.be.true);\r",
+									"        console.warn(\"Cảnh báo: Mảng documents trống\");\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    pm.test(\"Response JSON hợp lệ\", () => {\r",
+									"        pm.expect.fail(\"Không thể parse JSON response: \" + e.message);\r",
+									"    });\r",
+									"    console.error(\"Lỗi khi xử lý response:\", e);\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 3. HÀM HỖ TRỢ KIỂM TRA SORT (ĐÃ TỐI ƯU)\r",
+									"// ==============================================\r",
+									"function checkStringSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const current = String(data[i][field] || \"\").toLowerCase().trim();\r",
+									"            const next = String(data[i + 1][field] || \"\").toLowerCase().trim();\r",
+									"            \r",
+									"            if (isAscending ? current > next : current < next) {\r",
+									"                console.error(`Lỗi sort tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"function checkDateSort(data, field, isAscending) {\r",
+									"    try {\r",
+									"        for (let i = 0; i < data.length - 1; i++) {\r",
+									"            const currentDate = new Date(data[i][field] || null);\r",
+									"            const nextDate = new Date(data[i + 1][field] || null);\r",
+									"            \r",
+									"            if (isNaN(currentDate.getTime()) || isNaN(nextDate.getTime())) {\r",
+									"                console.error(`Ngày không hợp lệ tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_value: data[i][field],\r",
+									"                    next_value: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"            \r",
+									"            if (isAscending ? currentDate > nextDate : currentDate < nextDate) {\r",
+									"                console.error(`Lỗi sort ngày tại vị trí ${i}:`, {\r",
+									"                    field: field,\r",
+									"                    current_date: data[i][field],\r",
+									"                    next_date: data[i+1][field],\r",
+									"                    document_ids: [data[i].id, data[i+1].id]\r",
+									"                });\r",
+									"                return false;\r",
+									"            }\r",
+									"        }\r",
+									"        return true;\r",
+									"    } catch (e) {\r",
+									"        console.error(`Lỗi khi kiểm tra sort date field ${field}:`, e);\r",
+									"        return false;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"// ==============================================\r",
+									"// 4. LOGIC KIỂM TRA SORT THEO TỪNG LOẠI\r",
+									"// ==============================================\r",
+									"if (documents.length > 0) {\r",
+									"    let isSortedCorrectly = true;\r",
+									"    let testedField = \"\";\r",
+									"    let sortDescription = \"\";\r",
+									"\r",
+									"    switch (sortType) {\r",
+									"        case 1: // Title A-Z\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 2: // Title Z-A\r",
+									"            testedField = \"title\";\r",
+									"            sortDescription = \"Title (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 3: // Description A-Z\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 4: // Description Z-A\r",
+									"            testedField = \"description\";\r",
+									"            sortDescription = \"Description (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 5: // CreateDate cũ → mới\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Cũ → Mới)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 6: // CreateDate mới → cũ\r",
+									"            testedField = \"create_date\";\r",
+									"            sortDescription = \"CreateDate (Mới → Cũ)\";\r",
+									"            isSortedCorrectly = checkDateSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        case 7: // Status A-Z\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (A-Z)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, true);\r",
+									"            break;\r",
+									"            \r",
+									"        case 8: // Status Z-A\r",
+									"            testedField = \"status\";\r",
+									"            sortDescription = \"Status (Z-A)\";\r",
+									"            isSortedCorrectly = checkStringSort(documents, testedField, false);\r",
+									"            break;\r",
+									"            \r",
+									"        default:\r",
+									"            pm.test(`SortType ${sortType} không hợp lệ`, () => {\r",
+									"                pm.expect.fail(`SortType phải từ 1-8, nhận được: ${sortType}`);\r",
+									"            });\r",
+									"            console.error(`SortType không hợp lệ: ${sortType}`);\r",
+									"            break;\r",
+									"    }\r",
+									"\r",
+									"    // ==============================================\r",
+									"    // 5. ASSERT KẾT QUẢ VÀ DEBUG\r",
+									"    // ==============================================\r",
+									"    if (sortType >= 1 && sortType <= 8) {\r",
+									"        if (isSortedCorrectly) {\r",
+									"            pm.test(`✅ Sắp xếp đúng theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect(true).to.be.true;\r",
+									"            });\r",
+									"        } else {\r",
+									"            pm.test(`❌ Sắp xếp SAI theo ${sortDescription} (SortType ${sortType})`, () => {\r",
+									"                pm.expect.fail(`Xem console để biết vị trí lỗi sort`);\r",
+									"            });\r",
+									"        }\r",
+									"\r",
+									"        // Log thông tin debug\r",
+									"        console.log(\"=== THÔNG TIN DEBUG ===\");\r",
+									"        console.log(\"SortType kiểm tra:\", sortType, `(${sortDescription})`);\r",
+									"        console.log(\"Trường kiểm tra:\", testedField);\r",
+									"        console.log(\"Số lượng documents:\", documents.length);\r",
+									"        \r",
+									"        if (documents.length > 0) {\r",
+									"            console.log(\"Document đầu tiên:\", {\r",
+									"                id: documents[0].id,\r",
+									"                [testedField]: documents[0][testedField],\r",
+									"                title: documents[0].title,\r",
+									"                create_date: documents[0].create_date\r",
+									"            });\r",
+									"            \r",
+									"            console.log(\"Document cuối cùng:\", {\r",
+									"                id: documents[documents.length-1].id,\r",
+									"                [testedField]: documents[documents.length-1][testedField],\r",
+									"                title: documents[documents.length-1].title,\r",
+									"                create_date: documents[documents.length-1].create_date\r",
+									"            });\r",
+									"        }\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DisplayLength",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "DisplayStart",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "sEcho",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "8",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentListDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentListDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentListDetail - Invalid SortType Is Characters (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"InputParameterError\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DisplayLength",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "DisplayStart",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "sEcho",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "8",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentListDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentListDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentListDetail - Invalid SortType 0 (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"InputParameterError\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DisplayLength",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "DisplayStart",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "sEcho",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "SortType",
+									"value": "8",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentListDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentListDetail"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GetDocumentDetail",
+			"item": [
+				{
+					"name": "GetDocumentDetail - Success - Valid ID(200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"OK\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DocumentID",
+									"value": "aaec2245899d4a498f68bce5fb25fbe7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentDetail - Success - Check Perfomance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"OK\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DocumentID",
+									"value": "aaec2245899d4a498f68bce5fb25fbe7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentDetail - Success - Check Detail Structure(200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"OK\");\r",
+									"});\r",
+									"// ====== 1. Lấy response data ======\r",
+									"const responseData = pm.response.json();\r",
+									"const documentId = pm.request.body.urlencoded.get(\"DocumentID\");\r",
+									"const documentDetail = responseData.detail[documentId];\r",
+									"\r",
+									"// ====== 2. Kiểm tra cấu trúc response tổng quan ======\r",
+									"pm.test(\"[Structure] Response phải có đúng cấu trúc\", () => {\r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData).to.have.keys(['status', 'detail']);\r",
+									"    pm.expect(responseData.detail).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"// ====== 3. Kiểm tra từng trường bắt buộc ======\r",
+									"if (documentDetail) {\r",
+									"    // 3.1. Kiểm tra các trường chính\r",
+									"    const requiredFields = {\r",
+									"        title: 'string',\r",
+									"        description: 'string',\r",
+									"        be_contents_id: 'string',\r",
+									"        be_contents_id_prn: 'string',\r",
+									"        status: 'number',\r",
+									"        type: 'number',\r",
+									"        create_date: 'string',\r",
+									"        last_modify_date: 'string',\r",
+									"        file_name: 'string',\r",
+									"        file_size: 'number',\r",
+									"        thumbnail: 'string'\r",
+									"    };\r",
+									"\r",
+									"    Object.entries(requiredFields).forEach(([field, type]) => {\r",
+									"        pm.test(`[Field] ${field} phải tồn tại và là ${type}`, () => {\r",
+									"            pm.expect(documentDetail).to.have.property(field);\r",
+									"            pm.expect(documentDetail[field]).to.be.a(type);\r",
+									"        });\r",
+									"    });\r",
+									"\r",
+									"    // 3.2. Kiểm tra giá trị enum\r",
+									"    pm.test(\"[Status] Phải là 1, 2 hoặc 3\", () => {\r",
+									"        pm.expect([1, 2, 3]).to.include(documentDetail.status);\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"[Type] Phải là 1 (PDF) hoặc giá trị hợp lệ khác\", () => {\r",
+									"        pm.expect(documentDetail.type).to.be.a('number').above(0);\r",
+									"    });\r",
+									"\r",
+									"    // 3.3. Kiểm tra định dạng ngày tháng\r",
+									"    pm.test(\"[Date] create_date phải đúng định dạng\", () => {\r",
+									"        pm.expect(documentDetail.create_date).to.match(/^\\d{4}\\/\\d{2}\\/\\d{2} \\d{2}:\\d{2}:\\d{2}$/);\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"[Date] last_modify_date phải đúng định dạng\", () => {\r",
+									"        pm.expect(documentDetail.last_modify_date).to.match(/^\\d{4}\\/\\d{2}\\/\\d{2} \\d{2}:\\d{2}:\\d{2}$/);\r",
+									"    });\r",
+									"\r",
+									"    // 3.4. Kiểm tra độ dài tối thiểu\r",
+									"    pm.test(\"[ID] be_contents_id phải có 32 ký tự\", () => {\r",
+									"        pm.expect(documentDetail.be_contents_id).to.have.lengthOf(32);\r",
+									"    });\r",
+									"} else {\r",
+									"    pm.test(\"[ERROR] Không tìm thấy document detail\", () => {\r",
+									"        pm.expect.fail(`Không có thông tin cho DocumentID: ${documentId}`);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"// ====== 4. Kiểm tra thêm với dữ liệu thực tế ======\r",
+									"if (documentDetail?.file_name) {\r",
+									"    pm.test(\"[File] Tên file phải khớp với định dạng\", () => {\r",
+									"        pm.expect(documentDetail.file_name).to.match(/\\.(pdf|docx?|xlsx?|pptx?)$/i);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"// ====== 5. Debug thông tin ======\r",
+									"console.log(\"DocumentID được kiểm tra:\", documentId);\r",
+									"console.log(\"Toàn bộ response:\", JSON.stringify(responseData, null, 2));\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DocumentID",
+									"value": "aaec2245899d4a498f68bce5fb25fbe7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentDetail - Missing Document ID Parameter(400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"InputParameterError\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentDetail - Non-existent DocID(404)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"NotFound\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DocumentID",
+									"value": "non_existent_id",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentDetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocumentDetail - DocID Wrong Format(400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"InputParameterError\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "SessionID",
+									"value": "{{api_token}}",
+									"type": "text"
+								},
+								{
+									"key": "DocumentID",
+									"value": "invalid@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{uri}}/HoGo/api/v1/GetDocumentDetail",
+							"host": [
+								"{{uri}}"
+							],
+							"path": [
+								"HoGo",
+								"api",
+								"v1",
+								"GetDocumentDetail"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
